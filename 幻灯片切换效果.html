@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="images/jquery-1.8.3.min.js"></script>
+<style type="text/css">
+*{margin:0;padding:0;}
+img{border:none;}
+ul{list-style:none;}
+body{background:#fff;}
+.warp{ height:300px; width:1000px; margin:20px auto;}
+
+#box{width:1000px; position:relative; height:300px; overflow:hidden;}
+.current{display:block;}
+.big_img{ width:1000px; height:300px; overflow:hidden;}
+.slider_title{position:absolute; top:90px;width:250px;height:85px; background:rgba(0, 0, 0, .4);}
+.slider_title a{font-family:microsoft yahei; color:#FFF; text-decoration:none; display:block; height:85px; padding-left:15px; padding-right:15px;}
+.slider_title a h1{ font-size:18px; text-align:left; line-height:32px;}
+.slider_title a p{ font-size:12px; text-align:left; line-height:20px; color:#D6D6D6;}
+.slider_list{width:450px; position:absolute; bottom:20px; right:40px; }
+.slider_list li{display:inline;float:left;margin:0 0 0 15px;position:relative; width:54px; height:37px; border:#FFF 1px solid; overflow:hidden;}
+.slider_list .current{position:relative; border:#169105 1px solid;}
+
+
+
+</style>
+</head>
+
+<body>
+<div class="warp">
+    <div id="box">
+      <ul class="big_img">
+        <li style="display: list-item;"><a href="###"><img src="images/1.jpg" width="1000" height="300" alt=""></a></li>
+        <li style="display: none;"><a href="###"><img src="images/2.jpg" width="1000" height="300"alt=""></a></li>
+        <li style="display: none;"><a href="###"><img src="images/3.jpg" width="1000" height="300"alt=""></a></li>
+        <li style="display: none;"><a href="###"><img src="images/4.jpg" width="1000" height="300"alt=""></a></li>
+        <li style="display: none;"><a href="###"><img src="images/5.jpg" width="1000" height="300"alt=""></a></li>
+        <li style="display: none;"><a href="###"><img src="images/6.jpg" width="1000" height="300"alt=""></a></li>
+      </ul>
+      <ul class="slider_title">
+        <li style="display: list-item;"><a href="###">
+        	<h1>测试图片测试一下1</h1>
+            <p>南京中山陵为首的景点路线，大桥，夫子庙等，都很受游客欢迎。</p>
+        </a></li>
+        <li style="display: none;"><a href="###">
+        	<h1>测试图片测试一下2</h1>
+            <p>南京中山陵为首的景点路线，大桥，夫子庙等，都很受游客欢迎。</p>
+            </a></li>
+        <li style="display: none;"><a href="###">
+        	<h1>测试图片测试一下3</h1>
+            <p>南京中山陵为首的景点路线，大桥，夫子庙等，都很受游客欢迎。</p>
+        </a></li>
+        <li style="display: none;"><a href="###">
+        	<h1>测试图片测试一下4</h1>
+            <p>南京中山陵为首的景点路线，大桥，夫子庙等，都很受游客欢迎。</p>
+        </a></li>
+        <li style="display: none;"><a href="###">
+        	<h1>测试图片测试一下5</h1>
+            <p>南京中山陵为首的景点路线，大桥，夫子庙等，都很受游客欢迎。</p>
+        </a></li>
+        <li style="display: none;"><a href="###">
+        	<h1>测试图片测试一下6</h1>
+            <p>南京中山陵为首的景点路线，大桥，夫子庙等，都很受游客欢迎。</p>
+        </a></li>
+      </ul>
+      <ul class="slider_list">
+        <li index="1" class="current"><a href="javascript:void(0)"><img src="images/1.jpg" height="37" alt=""></a></li>
+        <li index="2" class=""><a href="javascript:void(0)"><img src="images/2.jpg"  height="37" alt=""></a></li>
+        <li index="3" class=""><a href="javascript:void(0)"><img src="images/3.jpg"  height="37" alt=""></a></li>
+        <li index="4" class=""><a href="javascript:void(0)"><img src="images/4.jpg"  height="37" alt=""></a></li>
+        <li index="5" class=""><a href="javascript:void(0)"><img src="images/5.jpg"  height="37" alt=""></a></li>
+        <li index="6" class=""><a href="javascript:void(0)"><img src="images/6.jpg"  height="37" alt=""></a></li>
+      </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+/* 
+ * @name: 图片幻灯片特效
+ * @time: 2014/11/04
+ * @author: cyj
+*/
+var myTimer;
+var currentIndex = -1;	//当前图片索引
+var $big = $('.big_img li');	
+var $title = $('.slider_title li');
+var $small = $('.slider_list li');	//小图索引
+function show(){		//进行索引位置的处理
+	var next = currentIndex < ($big.length -1)? currentIndex+1:0;	//判断图像的索引
+	showImg(next);
+}
+
+function showImg(index){			
+	$($big[index]).stop().fadeIn().siblings().stop().fadeOut();
+	$($title[index]).stop().show().siblings().stop().hide();
+	$($small[index]).addClass('current').siblings().removeClass('current');
+	currentIndex = index;
+}
+	
+$(function(){
+	myTimer = setInterval("show()",3000);
+	//大图停止事件
+	$big.hover(function(){clearInterval(myTimer);},function(){myTimer = setInterval("show()",3000);});
+	//小图事件
+	$small.hover(function(){
+		var index = $(this).attr('index');
+		clearInterval(myTimer);
+		showImg(index-1);
+	},function(){
+		myTimer = setInterval("show()",3000);
+	});
+	show();		
+});
+</script>
+</body>
+</html>

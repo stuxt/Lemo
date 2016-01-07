@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js判断文本框字数的显示进度条的实现</title>
+	<style>
+	.warp{
+		width: 600px;
+		margin: 0px auto;
+	}
+	#con{
+		width: 400px;
+		height: 200px;
+	}
+	.load{
+		width: 400px;
+		height: 10px;
+		border: 1px #999 solid;
+		background: #EEE;
+		margin: 10px 0px;
+		position: relative;
+	}
+	#length{
+		width: 0%;
+		height: 10px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		background: #000;
+	}
+	</style>
+	<script>
+	function jStrLength () {
+		var textipt = document.getElementById('con');
+		var textcon = document.getElementById('con').value;
+		var strLength = textcon.length;
+		strLength = parseInt(strLength); 
+		var percent = (strLength/400)*100;
+		//document.getElementById('load').innerText="已输入"+strLength+"个文字";
+		//alert(percent);
+		var preLength = document.getElementById('length');
+		if (percent<=100) {
+			preLength.style.width=percent+'%';
+		}else{
+			textipt.value = textcon.substr(0,400);
+			preLength.style.width='100%';
+		}
+		
+	}
+	</script>
+</head>
+<body>
+	<div class="warp">
+		<form>
+			<label for="con">最多输入400字</label>
+			<br>
+			<textarea name="con" id="con" onkeyup="jStrLength ()"></textarea>
+			<div class="load" id="load">
+				<div id="length"></div>
+			</div>
+		</form>
+	</div>
+	
+</body>
+</html>
