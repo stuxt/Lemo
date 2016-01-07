@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # stuxt.github.io
 My blog site!
 
@@ -18,3 +19,8 @@ My blog site!
 
 #V1.0 DONE
  2015-11-27
+=======
+# Lemo
+Little Demo
+
+>>>>>>> origin/master
