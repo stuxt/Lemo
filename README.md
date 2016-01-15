@@ -3,6 +3,7 @@ Little Demo
 >我的小小demo库
 
 ##目录
+* Swiper 图片轮播 效果
 * CSS3 简单的集中transform 效果
 * 输入进度实现
 * 幻灯片效果
