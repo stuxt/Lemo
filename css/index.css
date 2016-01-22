@@ -2,13 +2,13 @@
 
 .warp{ width: 100%; font-family: "microsoft yahei";}
 
-.header{ height: 250px; width: 100%; background-color: #2a2a2a; border-top: #E78170 2px solid;
+.header{ height: 300px; width: 100%; background-color: #2a2a2a; border-top: #E78170 2px solid;
   text-align: center; color: #fff;
 }
 .header .logo{ font-size: 50px; padding: 50px 0 20px; font-weight: bold;}
 .header .subtitle{ font-size: 20px; text-align: center; text-indent: 2em;}
 
-.list{ width: 800px; margin: 0 auto; }
+.list{ width: 800px; margin: 0 auto; margin-top: -71px; }
 .title{ text-align: center; font-size: 24px; padding: 20px 0; color: #fff; font-weight: bold; background-color: #E78170;}
 .list ul{ width: 798px; padding: 50px 0; border:1px solid #eee;}
 .list li{ width: 90%; margin: 10px auto; height: 50px; line-height: 50px; padding: 0 10px; font-size: 16px; text-align: right; overflow: hidden; 
