@@ -2,12 +2,7 @@
 Little Demo
 >我的小小demo库
 
-##目录
-* CSS3 box-shadow 效果
-* Swiper 图片轮播 效果
-* CSS3 简单的集中transform 效果
-* 输入进度实现
-* 幻灯片效果
-* 视差滚动效果
-
+###Visit URL
+> 2016-01-21
+[stuxt.github.io/Lemo](http://stuxt.github.io/Lemo)
 
